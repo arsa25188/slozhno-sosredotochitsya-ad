@@ -331,11 +331,11 @@
     justify-self: center;
   }
 
-  .content {
+  /*.content {
     gap: 80px;
     padding-block: 60px;
     padding-inline: 10px;
-  }
+  }*/
 
   .content__cards {
     max-inline-size: 768px;
@@ -385,6 +385,43 @@
   }
 }
 
+
+@media (width >= 768px) {
+  .header {
+    padding: 20px;
+  }
+
+  .decorated-zone::before {
+    inset-block-start: 20px;
+    inset-inline-end: 20px;
+  }
+
+  .decorated-zone::after {
+    inset-block-end: 20px;
+    inset-inline-start: 20px;
+  }
+
+  .header__rec-badge {
+    inset-block-start: 20px;
+    inset-inline-end: 28px;
+  }
+
+  .header__title,
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__title {
+    margin-inline-start: -20px;
+  }
+
+  .content {
+    gap: 80px;
+    padding-block: 60px;
+    padding-inline: 20px;
+  }
+}
+
 /* ==============================
    iPad Mini — 768-1024px
    ============================== */
@@ -411,10 +448,9 @@
 
 @media (width >=1024px) {
   .header__theme-menu {
-    align-self: flex-start;
+    align-self: start;
     justify-self: center;
-    padding-right: 0%;
-    padding-top: 0.5%;
+    padding: 0;
   }
 
   .header__theme-menu-list {
