@@ -108,7 +108,7 @@
     display: none;
   }
 
-  content__section-title {
+  .content__section-title {
     color: var(--text-color);
   }
 

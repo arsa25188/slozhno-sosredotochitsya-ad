@@ -134,7 +134,7 @@
   font-weight: bold;
   line-height: 0.825;
   color: var(--focus-color);
-  text-shadow: 2px 2px 0 var(--accent-color);
+  text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 /* Подзаголовок шапки */
@@ -282,6 +282,8 @@
 
 .footer.decorated-zone {
   display: grid;
+  block-size: 100vh;
+  min-block-size: 668px;
 }
 
 .footer__title {
@@ -322,9 +324,9 @@
     grid-template-rows: 1.5fr 1.5fr 1fr;
   }
 
-  .header__title {
+  /*.header__title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }
+  }*/
 
   .header__subtitle {
     max-inline-size: 768px;
@@ -374,14 +376,13 @@
   }
 
   .footer.decorated-zone {
-    min-height: 668px;
+    min-block-size: 668px;
     padding: 20px;
   }
 
   .footer__title {
     justify-self: center;
     align-self: center;
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }
 
@@ -439,7 +440,7 @@
   }
 
   .footer.decorated-zone {
-    min-height: 1024px;
+    min-block-size: 1024px;
   }
 }
 /* ==============================
@@ -484,6 +485,6 @@
   }
 
   .footer.decorated-zone {
-    min-height: 768px;
+    min-block-size: 768px;
   }
 }
