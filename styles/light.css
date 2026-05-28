@@ -12,12 +12,6 @@
   --bg-image: url('../images/cover-image-light.png');
 }
 
-/* Фон страницы — светлая тема */
-.theme-light .page {
-  background-color: var(--bg-color);
-  background-image: var(--bg-image);
-}
-
 .theme-light .decorated-zone::before {
   border-block-start: 1px solid var(--text-color);
   border-inline-end: 1px solid var(--text-color);
@@ -28,12 +22,11 @@
   border-inline-start: 1px solid var(--text-color);
 }
 
-/* Кнопки темы — светлая тема */
-.theme-light .header__theme-menu-button {
+.theme-light .header__theme-menu-button { /*кнопки темы в шапке*/
   color: var(--text-color);
 }
 
-.theme-light .header__theme-menu-button:hover {
+.theme-light .header__theme-menu-button:hover { /*стиль при наведении на кнопки темы в шапке*/
   outline: 1px solid color-mix(in srgb, var(--text-color) 40%, transparent);
 }
 
@@ -45,8 +38,7 @@
   outline: 1px solid var(--text-color);
 }
 
-/* Бейдж REC скрыт в светлой теме */
-.theme-light .header__rec-badge {
+.theme-light .header__rec-badge { /* REC скрыт в светлой теме */
   display: none;
 }
 
@@ -58,61 +50,52 @@
   color: var(--title-decor-color);
 }
 
-/* ==============================
-   МЕДИАЗАПРОС — системная светлая тема
-   ============================== */
-
 @media (prefers-color-scheme: light) {
-  :root {
+  :root.theme-auto {
     --bg-color: #FFF1F7;
-    --focus-color: #ffc2e6;
     --text-color: #353430;
     --accent-color: #ff8dcb;
+    --focus-color: #ffc2e6;
     --title-decor-color: #353430;
     --bg-image: url('../images/cover-image-light.png');
   }
 
-  .page {
+  .theme-auto .page { 
     background-color: var(--bg-color);
     background-image: var(--bg-image);
   }
 
-   .decorated-zone::before {
+  .theme-auto .decorated-zone::before {
     border-block-start: 1px solid var(--text-color);
     border-inline-end: 1px solid var(--text-color);
   }
 
-  .decorated-zone::after {
+  .theme-auto .decorated-zone::after {
     border-block-end: 1px solid var(--text-color);
     border-inline-start: 1px solid var(--text-color);
   }
 
-  .header__theme-menu-button {
+  .theme-auto .header__theme-menu-button { /* кнопки темы в шапке*/
     color: var(--text-color);
   }
 
-  .header__theme-menu-button:hover {
+  .theme-auto .header__theme-menu-button:hover { /*стиль при наведении на кнопки темы в шапке*/
     outline: 1px solid color-mix(in srgb, var(--text-color) 40%, transparent);
   }
 
-  .header__theme-menu-button:focus-visible {
+  .theme-auto .header__theme-menu-button:focus-visible { /*стиль при фокусе на кнопки темы в шапке, например, при навигации с клавиатуры*/
     outline: 1px solid var(--text-color);
   }
 
-  .header__theme-menu-button_active {
+  .theme-auto .header__theme-menu-button_active {
     outline: 1px solid var(--text-color);
   }
 
-  /* Бейдж REC скрыт в светлой теме */
-  .header__rec-badge {
+  .theme-auto .header__rec-badge { /* REC скрыт в светлой теме */
     display: none;
   }
 
-  .content__section-title {
+  .theme-auto .content__section-title { /*стиль для заголовков секций*/
     color: var(--text-color);
-  }
-
-  .title-decor {
-    color: var(--title-decor-color);
   }
 }

@@ -1,8 +1,4 @@
-/* Основные стили проекта. Тёмная тема — основная. */
-
-/* ==============================
-   СТРАНИЦА
-   ============================== */
+/* Основные стили проекта */
 
 .page {
   font-family: var(--font-family);
@@ -11,59 +7,23 @@
   color: var(--text-color);
   background-color: var(--bg-color);
   background-image: var(--bg-image);
-  background-size: cover;
+  background-size: cover; /* увеличивает фоновое изображение, чтобы полностью покрыть элемент */
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: fixed; /* фиксирует фоновое изображение при прокрутке страницы */
 }
-
-/* ==============================
-   ДЕКОРАТИВНЫЕ УГОЛКИ
-   ============================== */
-
-.decorated-zone {
-  position: relative;
-}
-
-/* Уголок — правый верхний */
-.decorated-zone::before {
-  content: '';
-  position: absolute;
-  inset-block-start: 10px;
-  inset-inline-end: 10px;
-  inline-size: 25px;
-  block-size: 25px;
-  border-block-start: 1px solid var(--accent-color);
-  border-inline-end: 1px solid var(--accent-color);
-}
-
-/* Уголок — левый нижний */
-.decorated-zone::after {
-  content: '';
-  position: absolute;
-  inset-block-end: 10px;
-  inset-inline-start: 10px;
-  inline-size: 25px;
-  block-size: 25px;
-  border-block-end: 1px solid var(--accent-color);
-  border-inline-start: 1px solid var(--accent-color);
-}
-
-/* ==============================
-   ШАПКА
-   ============================== */
 
 .header {
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  align-items: start;
+  grid-template-rows: repeat(3, 1fr); /* 3 строки одинаковой высоты */
+  align-items: start; /* выравнивание по вертикали */
   padding: 10px;
-  block-size: 100vh;
-  min-block-size: 668px;
+  block-size: 100vh; /*шапка занимает всю высоту экрана*/
+  min-block-size: 668px; /*минимальная высота шапки для устройств с маленьким экраном, чтобы поместить все элементы и сохранить дизайн*/
 }
 
-.header__theme-menu {
+.header__theme-menu { /*меню*/
   align-self: center;
-  justify-self: end;
+  justify-self: end; /*располагает меню в правом верхнем углу шапки, так как шапка занимает всю высоту экрана, а меню выравнивается по верхнему краю*/
 }
 
 .header__theme-menu-list {
@@ -72,7 +32,7 @@
   gap: 10px;
 }
 
-.header__theme-menu-button {
+.header__theme-menu-button { /*стили кнопок меню*/
   padding: 3px 13px;
   background: transparent;
   border: none;
@@ -84,7 +44,7 @@
   cursor: pointer;
 }
 
-.header__theme-menu-button:hover {
+.header__theme-menu-button:hover { /*стиль при наведении на кнопку меню*/
   outline: 1px solid color-mix(in srgb, var(--accent-color) 40%, transparent);
 }
 
@@ -98,13 +58,38 @@
 
 .header__theme-menu-button_active {
   outline: 1px solid var(--accent-color);
-  pointer-events: none;
+  pointer-events: none; /* нельзя взаимодействовать мышкой с уже выбранной кнопклй*/
 }
 
-/* Бейдж REC — только тёмная тема */
+.decorated-zone {
+  position: relative; /*псевдоэлементы будут располагаться относительно конкретного header или footer, а не относительно всей страницы*/
+}
+
+.decorated-zone::before { /*правый уголок*/
+  content: '';
+  position: absolute; /*позволяет позиционировать псевдоэлемент относительно родительского элемента (header или footer)*/
+  inset-block-start: 10px; /*отступ сверху от родительского элемента*/
+  inset-inline-end: 10px; /*справа*/
+  inline-size: 25px; /*ширина псевдоэлемента*/
+  block-size: 25px; /*высота псевдоэлемента*/
+  border-block-start: 1px solid var(--accent-color); /*граница сверху*/
+  border-inline-end: 1px solid var(--accent-color); /*граница справа*/
+}
+
+.decorated-zone::after { /*левый уголок*/
+  content: '';
+  position: absolute;
+  inset-block-end: 10px;
+  inset-inline-start: 10px;
+  inline-size: 25px;
+  block-size: 25px;
+  border-block-end: 1px solid var(--accent-color); 
+  border-inline-start: 1px solid var(--accent-color); 
+}
+
 .header__rec-badge {
   position: absolute;
-  inset-block-start: 1.3%;
+  inset-block-start: 1.3%; /*располагает бейдж в верхней части шапки, так как шапка занимает всю высоту экрана, а бейдж выравнивается по верхнему краю*/
   inset-inline-end: 1.5%;
   display: flex;
   align-items: center;
@@ -117,9 +102,9 @@
   content: 'REC';
 }
 
-.header__rec-badge::after {
+.header__rec-badge::after { /*красный кружок*/
   content: '';
-  display: inline-block;
+  display: inline-block; /* позволяет псевдоэлементу вести себя как встроенный элемент, что позволяет ему располагаться на одной линии с текстом "REC" и другими элементами внутри бейджа*/
   inline-size: 9px;
   block-size: 9px;
   border-radius: 50%;
@@ -127,78 +112,59 @@
   box-shadow: 0 0 4px 2px var(--accent-color);
 }
 
-/* Заголовок шапки */
-.header__title {
+.header__title { /*стиль заголовка в шапке*/
   align-self: center;
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem); /* адаптивный размер шрифта, который изменяется в зависимости от ширины экрана, с минимальным размером 7.25rem и максимальным 7.5rem */
   font-weight: bold;
   line-height: 0.825;
   color: var(--focus-color);
   text-shadow: 4px 4px 0 var(--accent-color);
 }
 
-/* Подзаголовок шапки */
-.header__subtitle {
+.header__subtitle { /*стиль подзаголовка в шапке*/
   justify-self: end;
-  max-inline-size: 50%;
+  max-inline-size: 50%; /* ограничивает ширину подзаголовка до 50% от ширины шапки*/
   font-weight: bold;
 }
 
-/* ==============================
-   ДЕКОРАТИВНЫЙ КЛАСС
-   ============================== */
-
-.title-decor {
+.title-decor { /*текст на цветной плашке*/
   background-color: var(--accent-color);
   color: var(--title-decor-color);
 }
 
-/* ==============================
-   ОСНОВНОЙ КОНТЕНТ
-   ============================== */
-
-.content {
+.content { /*стили для основного контента*/
   display: grid;
   gap: 50px;
   padding-block: 40px;
   padding-inline: 10px;
 }
 
-/* ==============================
-   СЕКЦИИ КОНТЕНТА
-   ============================== */
-
 .section {
   display: grid;
   gap: 20px;
 }
 
-
-.content__section-title {
+.content__section-title { /*стиль заголовков секций*/
   font-size: var(--font-size);
   font-weight: bold;
   line-height: var(--line-height);
   color: var(--accent-color);
 }
 
-/* ==============================
-   КАРТОЧКИ
-   ============================== */
-
-.content__cards {
+.content__cards { /*стиль для списков карточек в секциях*/
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
 }
 
-.card__title {
+.card__title { /* стиль заголовков карточек в первой и третьей секциях, которые должны быть жирными*/
   font-size: var(--font-size);
   font-weight: bold;
   line-height: var(--line-height);
   margin-block-end: 10px;
 }
 
-.card__title.regular {
+.card__title.regular { /* стиль для заголовков карточек во второй секции, которые не должны быть жирными*/
   font-weight: normal;
 }
 
@@ -207,72 +173,47 @@
   line-height: var(--line-height);
 }
 
-.card__text a {
+.content__link {
   color: var(--text-color);
-  text-decoration: none;
+  text-decoration: none; /*убирает подчеркивание у ссылок*/
   text-shadow: 2px 2px 0 var(--accent-color);
 }
 
-.card__text a:hover {
+.content__link:hover { /*стиль при наведении на ссылку в карточках*/
   border-block-end: 1px solid var(--text-color);
 }
 
-.card__text a:focus {
+.content__link:focus { /*стиль при фокусе на ссылку в карточках, например, при навигации с клавиатуры*/
   outline: none;
 }
 
-.card__text a:focus-visible {
+.content__link:focus-visible {
   outline: 1px solid var(--text-color);
 }
-
-/* ==============================
-   ПРАВАЯ КОЛОНКА СЕКЦИИ 3
-   ============================== */
-
+/* третья секция (5 советов)*/ 
 .content__section-content {
   display: grid;
   gap: 20px;
 }
 
-.content__section-subtitle {
+.content__section-subtitle { /*стиль подзаголовков в секциях, например, "А можно в картинках?"*/
   font-size: var(--font-size);
   font-weight: bold;
   line-height: var(--line-height);
 }
 
-/* ==============================
-   ГАЛЕРЕЯ
-   ============================== */
-
-.gallery {
+.gallery { /*стиль для галереи в четвертой секции*/
   gap: 10px;
 }
 
 .gallery__grid {
   display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
+  gap: 10px; /*3 колонки одинаковой ширины*/
 
 }
 
-
-.gallery__image:nth-child(1) {
-  grid-column: span 2;
-}
-
-.gallery__image:nth-child(2) {
-  grid-row: span 2;
-}
-
-.gallery__image:nth-child(3) {
-  grid-row: span 2;
-}
-
-.gallery__image:nth-child(5) {
-  grid-column: span 2;
-}
-
-.gallery__image {
+.gallery__image { /*стиль для изображений в галерее*/
   display: block;
   inline-size: 100%;
   block-size: 100%;
@@ -280,7 +221,7 @@
   object-position: center;
 }
 
-.footer.decorated-zone {
+.footer.decorated-zone { /*стиль для футера, который должен быть украшен уголками*/
   display: grid;
   block-size: 100vh;
   min-block-size: 668px;
@@ -289,20 +230,18 @@
 .footer__title {
   align-self: center;
   text-align: center;
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem); /* адаптивный размер шрифта, который изменяется в зависимости от ширины экрана, с минимальным размером 7.25rem и максимальным 7.5rem */
   font-weight: bold;
   line-height: 0.825;
   color: var(--focus-color);
   text-shadow: 2px 2px 0 var(--accent-color);
 }
 
-/* ==============================
-   iPhone XR — 375-768px
-   ============================== */
+/*375-768px*/
 
 @media (width < 768px) {
-    .header__rec-badge {
-    inset-block-start: 2.3%;
+    .header__rec-badge { 
+    inset-block-start: 2.3%; /*отступ от верхнего края*/
     inset-inline-end: 4%;
   }
 
@@ -316,63 +255,26 @@
     inset-inline-start: 2%;
   }
 
-  .header {
-    min-height: 668px;
-  }
-
-  .header.iphone {
+  .header.phone {
     grid-template-rows: 1.5fr 1.5fr 1fr;
   }
 
-  /*.header__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }*/
-
-  .header__subtitle {
+  .header__subtitle { /*стиль подзаголовка в шапке для устройств с маленьким экраном, чтобы он располагался ниже заголовка и не занимал слишком много места рядом с ним*/
     max-inline-size: 768px;
     justify-self: center;
   }
 
-  /*.content {
-    gap: 80px;
-    padding-block: 60px;
-    padding-inline: 10px;
-  }*/
-
-  .content__cards {
+  .content__cards { /*стиль для списков карточек в секциях для устройств с маленьким экраном, чтобы карточки располагались в одну колонку и не были слишком узкими рядом друг с другом*/
     max-inline-size: 768px;
   }
 
-
-  .content__cards--three-cols {
+  .content__cards--three-cols {/*стиль для списков карточек в секциях, которые должны быть в три колонки, для устройств с маленьким экраном, чтобы карточки располагались в одну колонку и не были слишком узкими рядом друг с другом*/
     grid-template-columns: 1fr;
   }
 
-  /* Все секции: заголовок слева, контент справа */
-  .content__section {
+  .content__section { /*стиль для секций для устройств с маленьким экраном, чтобы контент располагался в одну колонку и не был слишком узким рядом друг с другом*/
     max-inline-size: 768px;
     grid-template-columns: 1fr;
-  }
-
-  /* Галерея — 3 колонки */
-  .gallery__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery__image:nth-child(1) {
-    grid-column: span 1;
-  }
-
-  .gallery__image:nth-child(2) {
-    grid-row: span 1;
-  }
-
-  .gallery__image:nth-child(3) {
-    grid-row: span 1;
-  }
-
-  .gallery__image:nth-child(5) {
-    grid-column: span 1;
   }
 
   .footer.decorated-zone {
@@ -386,7 +288,7 @@
   }
 }
 
-
+/* больше 768px, но меньше 1024px — планшеты и маленькие ноутбуки*/
 @media (width >= 768px) {
   .header {
     padding: 20px;
@@ -407,35 +309,54 @@
     inset-inline-end: 28px;
   }
 
-  .header__title,
+  .header__title, /*стиль заголовка в шапке для устройств с экраном от 768px, чтобы он был больше и занимал больше места в шапке, так как на таких устройствах обычно больше пространства для контента*/
   .footer__title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .header__title {
-    margin-inline-start: -20px;
+    margin-inline-start: -20px; /*отрицательный отступ слева для заголовка в шапке, чтобы он располагался ближе к левому краю шапки и занимал больше места, так как на устройствах с экраном от 768px обычно больше пространства для контента*/
   }
 
   .content {
     gap: 80px;
-    padding-block: 60px;
-    padding-inline: 20px;
+    padding-block: 60px; /* вертикальные внутренние оступы для основного контента, чтобы создать больше пространства между секциями и краями экрана на устройствах с экраном от 768px, так как на таких устройствах обычно больше пространства для контента*/
+    padding-inline: 20px; /*горизонтальные ынутренние отступы*/
+  }
+
+    .gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery__image:nth-child(1) {
+    grid-column: span 2;
+  }
+
+  .gallery__image:nth-child(2) {
+    grid-row: span 2;
+  }
+
+  .gallery__image:nth-child(3) {
+    grid-row: span 2;
+  }
+
+  .gallery__image:nth-child(5) {
+    grid-column: span 2;
   }
 }
 
-/* ==============================
-   iPad Mini — 768-1024px
-   ============================== */
+/* ширина больше 768px, но меньше 1024px — планшеты и маленькие ноутбуки*/
 @media (768px <= width < 1024px) {
   .header__rec-badge {
-    inset-inline-end: 2.6%;
+    inset-inline-end: 2.6%; /*отступ от правого края в процентах, чтобы бейдж располагался ближе к правому краю шапки, так как на таких устройствах обычно больше пространства для контента*/
   }
 
   .header__subtitle {
-    align-self: flex-start;
+    align-self: flex-start; /*На планшете плашка с текстом Что делать, когда не можешь делать ничего...
+    не центрируется по высоте своей строки, а поднимается к её верхней части, как предусмотрено макетом*/
   }
 
-  .content__section.ipad {
+  .content__section.ipad { /*первая и третья секции*/
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -443,44 +364,39 @@
     min-block-size: 1024px;
   }
 }
-/* ==============================
-   ДЕСКТОП — 1024px+
-   ============================== */
+/* 1024px+ */
 
-@media (width >=1024px) {
-  .header__theme-menu {
+@media (width >= 1024px) {
+  .header__theme-menu { /*меню темы*/
     align-self: start;
     justify-self: center;
     padding: 0;
   }
 
-  .header__theme-menu-list {
-    flex-direction: row;
+  .header__theme-menu-list { /*сами кнопки меню*/
+    flex-direction: row; /*строка*/
   }
 
-  /* Подзаголовок шапки */
-  .header__subtitle {
+  .header__subtitle { /*подзаголовок в шапке*/
     align-self: flex-start;
   }
 
-  /* Обычные секции (без title-decor на заголовке секции) */
-  .content__section {
+  .content__section { /*правило для всех тех секций*/
     grid-template-columns: 0.95fr 2fr;
   }
 
-  .section.three-cols {
+  .section.three-cols { /*вторая секция, которая должна быть в три колонки*/
     display: grid;
     grid-template-columns: 1fr;
   }
 
-  /* Три колонки — только секция 2 */
-  .content__cards--three-cols {
+  .content__cards--three-cols { /*три колонки карточек второй секции*/
     grid-template-columns: repeat(3, 1fr);
   }
 
   .footer__title {
-    justify-self: center;
-    align-self: center;
+    justify-self: center; /*заголовок в центре*/
+    align-self: center; /*заголовок по центру по вертикали*/
     font-size: clamp(9.8125rem, 6.8894rem + 4.5673vw, 11rem);
   }
 

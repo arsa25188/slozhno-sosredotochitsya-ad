@@ -3,13 +3,13 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Все элементы и их псевдоэлементы будут учитывать границы и отступы в своих размерах */
 }
 
 body {
   min-inline-size: 375px;
   max-inline-size: 1440px;
-  margin: 0 auto;
+  margin: 0 auto; /* Центрируем страницу и убираем отступы */
 }
 
 h1,
@@ -24,8 +24,8 @@ p {
 
 ul {
   margin: 0;
-  padding: 0;
-  list-style: none;
+  padding: 0; /*внутренний отступ убираем, чтобы не было отступов у списков*/
+  list-style: none; /*точки списка убираем*/
 }
 
 picture {
@@ -35,8 +35,8 @@ picture {
 
 button,
 a {
-  color: currentColor;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  color: currentColor; /*наследуем цвет от родителя*/
+  font-family: inherit; /*наследуем шрифт от родителя*/
+  font-size: inherit; /*наследуем размер шрифта от родителя*/
+  line-height: inherit; /*наследуем высоту строки от родителя*/
 }
